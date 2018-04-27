@@ -1,6 +1,5 @@
 package com.mybank.BankOfRyan;
 import java.util.List;
-import com.mybank.BankOfRyan.Constants;
 
 public class Bank {
     private String bankName;

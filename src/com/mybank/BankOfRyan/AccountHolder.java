@@ -12,7 +12,6 @@ public class AccountHolder {
     private String country;
     private long zipCode;
     private long branchZipCode;
-    public int numAccounts;
 
     private Account account;
 

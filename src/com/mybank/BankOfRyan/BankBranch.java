@@ -1,5 +1,4 @@
 package com.mybank.BankOfRyan;
-import java.util.List;
 
 public class BankBranch extends Bank {
     private String bankState;
@@ -7,7 +6,6 @@ public class BankBranch extends Bank {
     private String bankCountry;
     private String bankName;
     private String phoneNumber;
-    private List<AccountHolder> accountHolders;
     private int accountNum;
 
     @Override
@@ -24,9 +22,6 @@ public class BankBranch extends Bank {
 
     }
 
-    public List<AccountHolder> getAccountHolders() {
-        return accountHolders;
-    }
 
     public void setAccountNum(int accountNum) {
         this.accountNum = accountNum;
@@ -77,4 +72,3 @@ public class BankBranch extends Bank {
         this.phoneNumber = phoneNumber;
     }
 }
-
