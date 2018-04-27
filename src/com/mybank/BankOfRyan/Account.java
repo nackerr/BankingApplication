@@ -1,8 +1,5 @@
 package com.mybank.BankOfRyan;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
-import com.mybank.BankOfRyan.Constants;
 
 
 public class Account {
@@ -16,6 +13,7 @@ public class Account {
     public AccountTransactions getTransactionsList() {
         return accountTransactions;
     }
+
 
     public Account(long accNum, String accType, double balance) {
         accountNumber = accNum;
@@ -51,7 +49,7 @@ public class Account {
     public int writeCheque(int tNum, double amount, String date) {
         if (amount > 0) {
             if (amount <= accountBalance) {
-                int isAdded = accountTransactions.addTransaction(tNum, amount, date);
+                int isAdded = accountTransactions.addTransaction("CHECK", tNum, amount, date);
                 if (isAdded == Constants.TRANSACTION_WRITTEN) {
                     accountBalance = accountBalance - amount;
                     return Constants.TRANSACTION_WRITTEN;
@@ -70,6 +68,15 @@ public class Account {
             return Constants.AMOUNT_DEPOSITED;
         } else
             return Constants.INVALID_AMOUNT;
+    }
+
+    public int charge(int id, double amount, String date) {
+        if(accountBalance-amount <0){
+            return 4;
+        }
+        accountBalance = accountBalance - amount;
+        accountTransactions.addTransaction("DEB/CRED", id, amount, date);
+        return 7;
     }
 
     public List<Transaction> getRegister() {

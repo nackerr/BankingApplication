@@ -1,5 +1,4 @@
 package com.mybank.BankOfRyan;
-import com.mybank.BankOfRyan.Constants;
 
 public class AccountHolder {
 
@@ -12,17 +11,25 @@ public class AccountHolder {
     private String state;
     private String country;
     private long zipCode;
+    private long branchZipCode;
+    public int numAccounts;
 
     private Account account;
 
-    public AccountHolder() {
-        super();
-    }
 
-    public AccountHolder(String firstName, Account account) {
+    public AccountHolder(long branchZip, String firstName, Account account) {
         super();
         this.firstName = firstName;
         this.account = account;
+        this.branchZipCode = branchZip;
+    }
+
+    public long getBranchZipCode() {
+        return branchZipCode;
+    }
+
+    public void setBranchZipCode(long branchZipCode) {
+        this.branchZipCode = branchZipCode;
     }
 
     public String getFirstName() {

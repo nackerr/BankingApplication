@@ -5,15 +5,21 @@ public class Transaction {
     private int transactionNumber;
     private double transactionAmount;
     private String transactionDate;
+    private String transactionType;
 
-    public Transaction(int tNum, double tAmt, String tDate) {
+    public Transaction(String type, int tNum, double tAmt, String tDate) {
         transactionNumber = tNum;
         transactionAmount = tAmt;
         transactionDate = tDate;
+        transactionType = type;
     }
 
     public void setTransactionAmount(double transactionAmount) {
         this.transactionAmount = transactionAmount;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
     }
 
     public void setTransactionDate(String transactionDate) {
@@ -34,5 +40,9 @@ public class Transaction {
 
     public String getTransactionDate() {
         return transactionDate;
+    }
+
+    public String getTransactionType() {
+        return transactionType;
     }
 }

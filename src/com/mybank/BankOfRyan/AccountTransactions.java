@@ -13,9 +13,9 @@ public class AccountTransactions {
         transactionList = new ArrayList<Transaction>();
     }
 
-    public int addTransaction(int tNum, double amount, String date) {
+    public int addTransaction(String type, int tNum, double amount, String date) {
         if (tNum > 0 && tNum <= numberOfTransactions) {
-            Transaction t = new Transaction(tNum, amount, date);
+            Transaction t = new Transaction(type, tNum, amount, date);
             if(!transactionList.contains(t)) {
                 transactionList.add(t);
                 return Constants.TRANSACTION_WRITTEN;
@@ -26,11 +26,11 @@ public class AccountTransactions {
     }
 
     public void addDepositSlip(double amount, String date) {
-        Transaction t = new Transaction(-1, amount, date);
+        Transaction t = new Transaction("DEPOSIT", 0, amount, date);
         transactionList.add(t);
     }
 
-    public List<Transaction> transactioneRange(int start, int end) {
+    public List<Transaction> transactionRange(int start, int end) {
         Transaction t;
         Iterator<Transaction> it = transactionList.iterator();
         List<Transaction> transactions = new ArrayList<Transaction>();
